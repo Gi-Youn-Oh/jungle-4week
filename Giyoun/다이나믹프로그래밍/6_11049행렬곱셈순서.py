@@ -25,5 +25,7 @@ if __name__ == '__main__':
 
     print(dp[0][-1])   # i 행 j 열 k 는 i j 사이 어딘가 i = k 같을수도
 
+# d = diagonal 행렬의 곱셈 횟수
+
 # 행렬의 곱셈 (5x3) * (3x2) = 5x2  
     # 참조 https://rccode.tistory.com/155
