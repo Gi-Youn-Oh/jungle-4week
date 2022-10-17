@@ -30,3 +30,5 @@ for i in range(len1):
             dp[j]  = count +1
 
 print(max(dp))
+
+# https://myjamong.tistory.com/m/317
