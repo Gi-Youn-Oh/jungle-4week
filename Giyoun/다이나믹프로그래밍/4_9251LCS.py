@@ -21,17 +21,20 @@ input = sys.stdin.readline
 
 word1, word2 = input().strip(), input().strip()
 len1, len2 = len(word1), len(word2)
-cache = [0] * len2
+dp = [0] * len2
 
 for i in range(len1):
     count = 0
     for j in range(len2):
-        if count < cache[j]:
-            count = cache[j]
+        if count < dp[j]:
+            count = dp[j]
         elif word1[i] == word2[j]:
-            cache[j] = count + 1
-print(max(cache))
+            dp[j] = count + 1
+print(max(dp))
 
-# count 변수를 놓고 저장을 하면 리스트 인덱스 한바퀴 돌고 +1
-# 이전 요소에 대해 생각할 필요가없다.
-# 
+# count를 누적 변수로 사용한다.
+# 누적 변수의 값이 캐시값보다 작으면 교체한다.
+# 글자가 같은 경우 누적 변수에서 1을 더한다
+# 글자 하나를 기준으로 1차원 배열을 만들어주고 같은 글자를 순회하는 경우 누적 값에서 1을 더한 값을 넣어주는 방식이다. 
+# 순회할 때마다 누적값을 저장할 변수를 하나 사용하고 만약 글자가 다른 경우 누적 변수의 값이 해당 위치의 값보다 작은 경우 해당 값으로 교체해준다.
+#  이렇게 하면 누적 값에는 이전 위치까지 까지의 최대값이 계속해서 저장된다.

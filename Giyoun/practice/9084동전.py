@@ -19,3 +19,21 @@ for i in range(T):
             if i-coins[j] >= 0:
                 dp[j][i] +=dp[j][i-coins[j]]  
 print(dp[kind_coins][target])
+
+import sys
+
+T = int(input())
+
+for _ in range(T):
+    kind_coins = int(input())
+    coins = list(map(int, input().split()))
+    target = int(input())
+
+    dp =[0] * (target+1)
+    dp[0] = 1
+    for  coin in coins:
+        for i in range(1, target+1):
+            if i-coin >= 0:
+                dp[i] += dp[i-coin]
+
+print(dp[target])
