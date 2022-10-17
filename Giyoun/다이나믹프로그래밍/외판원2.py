@@ -5,10 +5,10 @@ W = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 dp = [[0] * (1 << N - 1) for _ in range(N)]
 
 def solution(i, route):
-    if dp[i][route] != 0:
-        return dp[i][route]
+    if dp[i][route] != 0: 
+        return dp[i][route]  # 0이 아니면 즉 방문했던 곳이면 값을 리턴
 
-    if route == (1 << (N - 1)) - 1:
+    if route == (1 << (N - 1)) - 1:  # 
         if W[i][0]:
             return W[i][0]
         else:
