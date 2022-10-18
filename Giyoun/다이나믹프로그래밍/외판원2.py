@@ -18,6 +18,7 @@ def solution(i, route):
     for j in range(1, N):
         if not W[i][j]:
             continue
+        
         if route & (1 << j - 1):
             continue
         dist = W[i][j] + solution(j, route | (1 << (j - 1)))
