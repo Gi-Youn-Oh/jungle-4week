@@ -16,7 +16,7 @@ for weight in weights:
     for i in range(40001):
         if dp[i] == True:
             if i + weight <= 40001:
-                canmake.add(i+weight) # 오른쪽에 놓았을때,
+                canmake.add(i+weight) 
             canmake.add(abs(i-weight))
     for c in canmake:
         dp[c] = True
