@@ -27,6 +27,7 @@ for marble in marbles:
     else:
         print('N', end=" ")
         
+# https://hseungyeon.tistory.com/m/354
 
 import sys
 input = sys.stdin.readline
