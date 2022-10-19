@@ -2,23 +2,23 @@ import sys
 sys.setrecursionlimit(10 ** 8)
 input = sys.stdin.readline
  
-def dfs(sx, sy):
+def dfs(move_x, move_y):
     # 도착 지점에 도달하면 1(한 가지 경우의 수)를 리턴
-    if sx == m-1 and sy == n-1:
+    if move_x == m-1 and move_y == n-1:
         return 1
  
     # 이미 방문한 적이 있다면 그 위치에서 출발하는 경우의 수를 리턴
-    if dp[sx][sy] != -1:
-        return dp[sx][sy]
+    if dp[move_x][move_y] != -1:
+        return dp[move_x][move_y]
     
     ways = 0
     for i in range(4):
-        nx, ny = sx + dx[i], sy + dy[i]
-        if 0 <= nx < m and 0 <= ny < n and graph[sx][sy] > graph[nx][ny]:
-            ways += dfs(nx, ny)
+        next_x, next_y = move_x + dx[i], move_y + dy[i]
+        if 0 <= next_x < m and 0 <= next_y < n and graph[move_x][move_y] > graph[next_x][next_y]:
+            ways += dfs(next_x, next_y)
     
-    dp[sx][sy] = ways
-    return dp[sx][sy]
+    dp[move_x][move_y] = ways
+    return dp[move_x][move_y]
  
 
 m, n = map(int, input().split())
